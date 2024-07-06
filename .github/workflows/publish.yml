@@ -1,4 +1,5 @@
 name: Build book
+permissions: write-all
 on:
   push:
     branches:
