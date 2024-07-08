@@ -55,4 +55,4 @@ There are at least 2 ways you can use asterai to fix this problem:
    query, using natural language, tne app responds with the relevant pieces.
 
 This use case uses two core features from asterai: LLMs and Vector DBs.
-And, like any other asterai project, it is developed as plugins.
+And, like any other asterai project, it is developed as a plugin.
