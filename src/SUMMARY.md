@@ -2,7 +2,7 @@
 
 # Overview
 - [Overview](./1_overview.md)
-- [Console](./2_console.md)
+- [Console & CLI](./2_console_and_cli.md)
 - [Plugins](./3_plugins.md)
 
 # Guides
