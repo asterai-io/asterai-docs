@@ -52,7 +52,7 @@ There are at least 2 ways you can use asterai to fix this problem:
    the relevant art pieces.
    The user can even ask the assistant to add an art piece to their cart!
 2. Enhance the legacy search box with AI: when the user executes their
-   query, using natural language, tne app responds with the relevant pieces.
+   query, using natural language, the app responds with the relevant pieces.
 
 This use case uses two core features from asterai: LLMs and Vector DBs.
 And, like any other asterai project, it is developed as a plugin.
