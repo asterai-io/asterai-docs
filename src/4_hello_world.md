@@ -10,7 +10,7 @@ Think of this like sending a message to a pre-defined person in a contacts list.
 Except, in this example plugin the actual HTTP request for sending the DM is
 not sent.
 
-1. Sign into the [asterai console][https://asterai.io/dashboard]
+1. Sign into the [asterai console](https://asterai.io/dashboard)
 2. Create a new application
 3. Install the asterai CLI:
 ```bash
