@@ -10,7 +10,7 @@ Think of this like sending a message to a pre-defined person in a contacts list.
 Except, in this example plugin the actual HTTP request for sending the DM is
 not sent.
 
-1. Sign into the asterai console
+1. Sign into the [asterai console](https://asterai.io/dashboard)
 2. Create a new application
 3. Install the asterai CLI:
 ```bash
@@ -50,8 +50,19 @@ asterai deploy --app <your_app_id>
 Now you should see the new, active plugin that was just deployed.
 18. In the playground section, ask "who should I say hello to?".
 The app should reply with "Alice".
+19. You can also make a POST request to
+https://api.asterai.io/app/:your_app_id/query with a raw text body
+containing the user query.
+The response will be an [SSE][sse] of token streams.
+
+> NOTE: the playground section is not developed yet.
+> Instead, use an app such as Postman and make a POST request to the API
+> endpoint at https://api.asterai.io/app/:your_app_id/query with a raw
+> text body containing your user query, such as "who should I say hello to?".
 
 Hopefully this hello world example illustrates how asterai can be used to
 connect AI to applications.
 Within plugins, it is possible to access LLMs, Vector DBs, make HTTP calls
 and even use WebSockets.
+
+[sse]: https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events
