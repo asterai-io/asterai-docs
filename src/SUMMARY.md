@@ -1,9 +1,10 @@
 # Summary
 
 # Overview
-- [Overview](./1_overview.md)
-- [Console & CLI](./2_console_and_cli.md)
-- [Plugins](./3_plugins.md)
+- [Overview](./overview.md)
+- [Console & CLI](./console_and_cli.md)
+- [Plugins](./plugins.md)
+- [Marketplace](./marketplace.md)
 
 # Guides
-- [Hello World](./4_hello_world.md)
+- [Hello World](./hello_world.md)
