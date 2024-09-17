@@ -41,7 +41,8 @@ It is possible to generate a user query key using the following endpoint:
 ```http request
 GET https://api.asterai.io/app/:app_id/query/key/user/:app_user_id
 
-> {"key":"00000000-0000-0000-0000-000000000000"}
+Response example:
+{"key":"00000000-0000-0000-0000-000000000000"}
 ```
 
 Where `:app_id` is your app's ID and `:app_user_id` is the ID of your app's
