@@ -55,11 +55,6 @@ https://api.asterai.io/app/:your_app_id/query with a raw text body
 containing the user query.
 The response will be an [SSE][sse] of token streams.
 
-> NOTE: the playground section is not developed yet.
-> Instead, use an app such as Postman and make a POST request to the API
-> endpoint at https://api.asterai.io/app/:your_app_id/query with a raw
-> text body containing your user query, such as "who should I say hello to?".
-
 Hopefully this hello world example illustrates how asterai can be used to
 connect AI to applications.
 Within plugins, it is possible to access LLMs, Vector DBs, make HTTP calls
