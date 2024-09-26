@@ -3,9 +3,6 @@ This documentation book covers asterai's core features in this initial section,
 followed by usage guides to get started with asterai step-by-step in the next
 section.
 
-It is recommended that this documentation is read in a book format, from start
-to end.
-
 ## What is asterai?
 asterai is a Framework as a Service (FaaS) for efficiently integrating
 emerging AI technologies into existing applications.
