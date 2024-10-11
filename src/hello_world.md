@@ -29,16 +29,16 @@ asterai init hello-world
 cd hello-world
 npm i 
 ```
-7. Inspect the contents of `plugin.asterai.yml`, the plugin manifest file
+7. Inspect the contents of `plugin.asterai.proto`, the plugin manifest file
 8. Inspect the contents of `plugin.ts`, the plugin file
-9. Modify the contents of `plugin.asterai.yaml` so that it has a function
+9. Modify the contents of `plugin.asterai.proto` so that it has a function
 called `sayHello` instead of `orderBurger`.
-10. Modify the function description to "say hello to a pre-defined person"
-11. Delete the next lines starting from `arguments:` -- this function call does
-not require any arguments.
+10. Modify the function comment to "say hello to a pre-defined person".
+11. This function call does not require any arguments, therefore update the
+input and output types to `Empty`, defined as `message Empty {}`.
 12. Run `asterai codegen`. Here, this has no effect because there are no
-arguments, but it is good practice to always run codegen after modifying the
-manifest file.
+arguments (they are empty), but it is good practice to always run codegen
+after modifying the manifest file to ensure the types are up to date.
 13. Modify the `plugin.ts` file to have the new function name, `sayHello`.
 14. Modify the return statement to return `"said hello to Alice"`
 15. Get your app ID from the cloud console
