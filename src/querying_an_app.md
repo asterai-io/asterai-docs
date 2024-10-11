@@ -3,13 +3,25 @@
 To query an app, use the HTTP request below:
 
 ```http request
-POST https://api.asterai.io/app/:app_id/query
+POST https://api.asterai.io/app/:app_id/query/:query_mode
 ```
+
+## Response format
+
+Currently the only supported query mode is `sse`, where the response
+will be an [SSE][sse] of app response events.
+
+Each SSE data event line will begin with one of these prefixes:
+
+| SSE data event line prefix | Description                                    |
+|----------------------------|------------------------------------------------|
+| "llm-token: "              | An LLM response token                          |
+| "plugin-output: "          | Plugin output message serialized with protobuf |
+
+## Authorization
 
 Note that you must set the `Authorization` header to an app query key.
 Find our more about app query keys below.
-
-The response will be an [SSE][sse] of token streams.
 
 ## Query keys
 
@@ -51,8 +63,17 @@ user, as a unique string (maximum of 64 characters).
 Note that this is an authenticated request, so you must set the `Authorization`
 header to your API key which can be found in your account page in the dashboard.
 
-[sse]: https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events
-
 Once you have the user query key, you can query your app with the user key
 by setting the `Authorization` header in the regular app query endpoint
 (`POST /app/:app_id/query`).
+
+## Client libraries
+
+We are currently working on implementing a TypeScript/JavaScript client library
+for querying asterai apps.
+
+If you'd like to show your interest in a client library for a specific
+programming language, join us on [Discord][discord] and let us know!.
+
+[sse]: https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events
+[discord]: https://discord.gg/NRWrNmxR4E
