@@ -1,18 +1,29 @@
 # asterai Documentation
-This documentation book covers asterai's core features in this initial section,
-followed by usage guides to get started with asterai step-by-step in the next
+This documentation covers asterai's core features in this initial section,
+followed by step-by-step usage guides to get started with asterai in the next
 section.
 
 ## What is asterai?
 asterai is a Framework as a Service (FaaS) for efficiently integrating
 emerging AI technologies into existing applications.
 
-With asterai, you are able to write a few lines of TypeScript-like code
-(AssemblyScript), run a deployment command from your terminal and harness
-the raw power of LLMs integrated into your existing application. 
+With asterai, you are able to write plugins with few lines of TypeScript-like
+code (AssemblyScript), deployed from your terminal, exposing application
+functionality that can be called by LLMs or other plugins.
 
-With asterai, you can make natural language an additional input type for your
-application.
+From within a plugin, you have access to a wide range of tools such as AI search,
+LLM calls, HTTP and WebSocket, and more, allowing you to seamlessly integrate
+an AI stack to your application.
+
+### What can I do with asterai?
+
+With asterai, you can:
+
+- make natural language an additional input type for your
+application
+- integrate AI search to make your app more efficient
+- efficiently build custom, reliable chatbots
+- get instant access to AI tools without worrying about infrastructure or scaling
 
 ### Core features
 asterai provides the following features at its core:
