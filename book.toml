@@ -4,3 +4,5 @@ language = "en"
 multilingual = false
 src = "src"
 title = "asterai"
+default-theme = "ayu"
+preferred-dark-theme = "ayu"
