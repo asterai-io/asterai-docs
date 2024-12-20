@@ -8,7 +8,8 @@ developing and deploying modular AI agents and fully featured AI applications.
 asterai is a platform for developing and deploying modular AI agents and fully
 featured AI applications.
 
-asterai lets you create an agent or AI app and add features to it easily.
+asterai lets you create an AI application such as an agent or assistant
+and easily add integrations and features to it in a modular way.
 Program custom features and logic with plugins, or click to instantly add
 existing functionality from the plugin marketplace.
 
@@ -20,54 +21,54 @@ This allows you to expose application functionality to LLMs
 (Large Language Models, such as ChatGPT's GPT-4)
 as well as to other plugins.
 
-For example, your agent can fetch data from a knowledge base from files you
-upload to let it answer questions based on your specific app.
-Your agent can also perform authenticated actions for your users, such as
-CRUD operations that would normally be used via buttons instead.
-
 From within a plugin, you have access to a wide range of tools out of the box
 such as AI search, LLM calls, HTTP requests, WebSocket connections, and more,
-allowing you to seamlessly integrate an AI stack to your application.
+allowing you to seamlessly integrate a powerful AI stack to your application.
 
 asterai lets you focus on your app, saving your time by giving you all the
 managed AI infra and tools you need in a simple way.
 
 ## Key Features of asterai
-* Plugin-based, modular AI agent building framework
-* AI search with a managed knowledge base and vector DBs
-* SDK for building plugins
-* SDK for querying agents: consume both structured data and natural language
-* REST API endpoints for querying agents from any client
-* CLI for deploying plugins
-* Cloud console for managing agents
+- Plugin-based, modular AI agent building framework
+- AI search with a managed knowledge base and vector DBs
+- SDK for building plugins
+- SDK for querying agents: consume both structured data and natural language
+- REST API endpoints for querying agents from any client
+- CLI for deploying plugins
+- Cloud console for managing agents
 
 ## What can I do with asterai?
-
-With asterai, you can:
+Lots cool of things!
 
 - make natural language an additional input type for your
-application
+  application
 - integrate AI search to make your app more efficient
-- efficiently build custom, reliable chatbots
-- create system workflows using AI agents for handling data in a structured way
+- easily build custom, reliable chatbots, assistants and AI agents
+- create system workflows capable of handling natural language
 - get instant access to AI tools without worrying about infrastructure or scaling
 
-### Example use case
-The following use case explains how asterai can be used in production.
 
-Picture a digital art marketplace app.
-You're using that app, and you are logged in.
-You would like to purchase an abstract oil painting with specific colours.
-For example, cyan and purple.
-But the traditional search box is not showing any results to your query.
-There are at least 2 ways you can use asterai to fix this problem:
+## Example use cases
 
-1. Implement an AI assistant chatbox.
-   The assistant is now able to parse the original user query and respond with
-   the relevant art pieces.
-   The user can even ask the assistant to add an art piece to their cart!
-2. Enhance the legacy search box with AI: when the user executes their
-   query, using natural language, the app responds with the relevant pieces.
+### Knowledge Base and AI search
+Upload files to a knowledge base and connect it to your agent so that it can
+answer questions specific to your application.
+Your agent can also perform authenticated actions for your users, such as
+CRUD operations that would normally be used via buttons instead.
 
-This use case uses two core features from asterai: LLMs and Vector DBs.
-And, like any other asterai project, it is developed as a plugin.
+Or, with the knowledge base, return structured results to build an AI search
+engine rather than an assistant or agent.
+You can also do both, for different parts of your app, with the same knowledge
+base.
+That is, your search bar and chatbot can use the same underlying technology.
+
+### Function Calls and Structured Outputs
+Query your application from any environment using our REST API or our SDKs,
+and consume structured outputs as well as natural language, allowing you to
+show front-end widgets and triggering front-end function calls
+alongside an AI assistant response.
+
+For example, create an agent with a Weather plugin.
+The plugin can respond with an object containing the city name and temperature,
+allowing your front-end to consume that object to show a weather "widget"
+along with the natural language provided by the LLM.
