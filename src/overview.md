@@ -1,21 +1,47 @@
 # asterai Documentation
-This documentation covers asterai's core features in this initial section,
-followed by step-by-step usage guides to get started with asterai in the next
-section.
+
+## Overview
+Create, integrate and deploy your AI agents with asterai - a platform for 
+developing and deploying modular AI agents and fully featured AI applications.
 
 ## What is asterai?
-asterai is a Framework as a Service (FaaS) for efficiently integrating
-emerging AI technologies into existing applications.
+asterai is a platform for developing and deploying modular AI agents and fully
+featured AI applications.
 
-With asterai, you are able to write plugins with few lines of TypeScript-like
-code (AssemblyScript), deployed from your terminal, exposing application
-functionality that can be called by LLMs or other plugins.
+asterai lets you create an agent or AI app and add features to it easily.
+Program custom features and logic with plugins, or click to instantly add
+existing functionality from the plugin marketplace.
 
-From within a plugin, you have access to a wide range of tools such as AI search,
-LLM calls, HTTP and WebSocket, and more, allowing you to seamlessly integrate
-an AI stack to your application.
+With asterai, you can write plugins using different programming languages, such
+as AssemblyScript, a TypeScript-like language, and deploy them from your
+terminal into your agent to instantly activate the plugin.
 
-### What can I do with asterai?
+This allows you to expose application functionality to LLMs
+(Large Language Models, such as ChatGPT's GPT-4)
+as well as to other plugins.
+
+For example, your agent can fetch data from a knowledge base from files you
+upload to let it answer questions based on your specific app.
+Your agent can also perform authenticated actions for your users, such as
+CRUD operations that would normally be used via buttons instead.
+
+From within a plugin, you have access to a wide range of tools out of the box
+such as AI search, LLM calls, HTTP requests, WebSocket connections, and more,
+allowing you to seamlessly integrate an AI stack to your application.
+
+asterai lets you focus on your app, saving your time by giving you all the
+managed AI infra and tools you need in a simple way.
+
+## Key Features of asterai
+* Plugin-based, modular AI agent building framework
+* AI search with a managed knowledge base and vector DBs
+* SDK for building plugins
+* SDK for querying agents: consume both structured data and natural language
+* REST API endpoints for querying agents from any client
+* CLI for deploying plugins
+* Cloud console for managing agents
+
+## What can I do with asterai?
 
 With asterai, you can:
 
@@ -23,33 +49,14 @@ With asterai, you can:
 application
 - integrate AI search to make your app more efficient
 - efficiently build custom, reliable chatbots
+- create system workflows using AI agents for handling data in a structured way
 - get instant access to AI tools without worrying about infrastructure or scaling
-
-### Core features
-asterai provides the following features at its core:
-
-1. A plugin-based, modular application building framework.
-2. LLM endpoints: choose your preferred LLM for the job.
-3. Vector DBs: add the magic of similarity search to your application.
-4. An SDK for building your plugins
-5. A CLI for deploying your plugins
-6. A cloud console for managing your applications
-
-
-## Why do I need asterai?
-LLMs have several use cases.
-The main use case of an LLM is an AI assistant, a.k.a. a chatbot
-
-Building an AI assistant from scratch that reliably integrates to your application's context
-and features is not a task that can normally be done within a day, or perhaps
-even a week.
-But with asterai, it can.
 
 ### Example use case
 The following use case explains how asterai can be used in production.
 
 Picture a digital art marketplace app.
-You're logged in as a user.
+You're using that app, and you are logged in.
 You would like to purchase an abstract oil painting with specific colours.
 For example, cyan and purple.
 But the traditional search box is not showing any results to your query.
