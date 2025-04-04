@@ -1,14 +1,7 @@
 # Hello World
-*this section is a work in progress*
-
-This step-by-step guide describes how to create a new asterai application
-that simply exposes a hardcoded name to the LLM via a plugin.
-When you ask the LLM who to give hello to, it will have access to the name
-within the plugin.
-
-Think of this like sending a message to a pre-defined person in a contacts list.
-Except, in this example plugin the actual HTTP request for sending the DM is
-not sent.
+This step-by-step guide shows how to create a custom plugin using TypeScript.
+This plugin will be able to fetch weather data using a free API,
+allowing the agent to fetch data for a given latitude and longitude.
 
 1. Sign into the [asterai console](https://asterai.io/dashboard)
 2. Create a new application
@@ -20,25 +13,41 @@ npm install -g @asterai/cli
 ```bash
 asterai auth <your_api_key> 
 ```
-5. Initialise a new project called `hello-world`:
+5. Initialise a new project called `weather-plugin`.
+This will create a new directory with a template plugin project.
 ```bash
-asterai init hello-world 
+asterai init weather-plugin
 ```
 6. Install dependencies on the new project:
 ```bash
-cd hello-world
-npm i 
+cd weather-plugin
+npm i
 ```
-7. Inspect the contents of `plugin.asterai.proto`, the plugin manifest file
-8. Inspect the contents of `plugin.ts`, the plugin file
-9. Modify the contents of `plugin.asterai.proto` so that it has a function
-called `sayHello` instead of `orderBurger`.
-10. Modify the function comment to "say hello to a pre-defined person".
-11. This function call does not require any arguments, therefore update the
-input and output types to `Empty`, defined as `message Empty {}`.
+7. Inspect the contents of `plugin.wit`, the plugin interface file
+8. Inspect the contents of `plugin.ts`, the plugin implementation
+9. Modify the contents of `plugin.wit`, removing the example `mul` function
+and adding a new function for fetching temperature data at
+latitude and longitude:
+```wit
+package your-username:weather-plugin@0.1.0;
+
+world plugin {
+  import asterai:host/api@0.1.0;
+
+  export fetch-temperature: func(latitude: f32, longitude: f32);
+}
+```
+10. Ensure to replace `your-username` in `plugin.wit` to your username,
+as otherwise you will not be able to deploy the plugin.
+10. Run `npm run build`. This will generate the types, but building will fail.
+11. Update `plugin.ts` to implement the `fetch-temperature` function.
+For this, we can use a free weather API:
+```ts
+
+```
 12. Run `asterai codegen`. Here, this has no effect because there are no
 arguments (they are empty), but it is good practice to always run codegen
-after modifying the manifest file to ensure the types are up to date.
+after modifying the interface file to ensure the types are up to date.
 13. Modify the `plugin.ts` file to have the new function name, `sayHello`.
 14. Modify the return statement to return `"said hello to Alice"`
 15. Get your app ID from the cloud console
