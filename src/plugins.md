@@ -1,72 +1,88 @@
 # Plugins
-*this section is a work in progress*
+Plugins are the core feature of Asterai agents.
+It allows agents to interact with external resources through functions,
+also known as tools.
 
-Plugins are the core feature of asterai.
-A plugin is a WebAssembly module, which can be written in
-[AssemblyScript][asc], a TypeScript-like language.
+Plugins can expose functionality such as interacting with HTTP APIs, knowledge
+bases, databases and also other plugins.
 
-Plugins have access to a range of functionality such as LLMs and Vector DBs.
-They can also make HTTP calls and establish and manage WebSocket connections.
+A plugin is a program that is compiled into a WebAssembly module and deployed
+into your agent.
 
-Therefore, a plugin can act as an bridge that connects AI to
-application logic.
+Plugins can be written in any language that can be compiled to WebAssembly,
+such as TypeScript, Python, Go, Rust, and many others.
 
-## Plugin manifest
-The plugin manifest is a [Protobuf][protobuf] (.proto) file written used to
-expose functionality from your plugin to both an LLM and other plugins.
+Plugins can be as simple or complex as required for your agent.
+Asterai offers a range of pre-existing tools to make common use cases extremely
+simple to implement, such as having your agent answer questions from a
+knowledge base.
 
-A plugin manifest for a burger ordering plugin could look something like this:
+## Plugin Interface
+The Plugin Interface defines what functions your plugin has.
+The interface file is in the [WIT][wit] file format. 
 
-```protobuf
-syntax = "proto3";
+An example plugin interface file looks like this:
 
-service BurgerShop {
-  // Orders a burger to be delivered to a specific address.
-  rpc orderBurger(Order) returns (OrderResult);
-}
+```wit
+package your-asterai-username:burger-shop@0.1.0;
 
-message Order {
-  // The address to deliver the burger to.
-  string address = 1;
-}
+world plugin {
+  import asterai:host/api@0.1.0;
 
-message OrderResult {
-  string system_message = 1;
+  export order-burger: func(order: order) -> order-result;
+
+  record order {
+    // The address to deliver the burger to.
+    address: string,
+  }
+
+  record order-result {
+    error: option<string>,
+  }
 }
 ```
 
-The manifest file describes the name of your plugin through the `service`
-keyword in protobuf, the exported plugin functions through the `rpc` keyword,
-and message types exchanged as function inputs and outputs.
+The first line defines the username of the owner of the plugin and the
+name of the plugin. In this case, the plugin name is `burger-shop`.
+It also defines a version, 0.1.0.
+Plugins must have unique versions when deployed, so the same version
+can't be deployed twice.
 
-The manifest file also generates convenience types for your plugin for each
-`message` declared in your plugin manifest.
-To generate types from the protobuf manifest run `asterai codegen`
-from your plugin's directory, which you can import from AssemblyScript code.
+This example plugin has a single function, `order-burger`, which
+takes in one argument, the `order` object, and returns another object,
+`order-result`, which contains an optional `error` string.
 
-## Plugin module
-The plugin module is the AssemblyScript file that handles requests.
-This compiles to a WebAssembly with `asterai build` and can be deployed
-to your app with `asterai deploy --app <your_app_id>`.
+The interface imports the `asterai:host` interface, which allows your
+plugin to interact with asterai's SDK to do things such as sending
+messages from the plugin to the agent.
 
-Following from the burger example above, the plugin module could look something
-like this:
+## Plugin Module
+The plugin module is the source code of the plugin, i.e. its implementation.
+This can be written in any programming language that compiles to WebAssembly.
+
+For example, the TypeScript implementation for the previous plugin interface
+example could look something like this:
 
 ```ts
-import { Log } from "@asterai/sdk";
-import {Order} from "./generated/Order";
-import {OrderResult} from "./generated/OrderResult";
+import * as asterai from "asterai:host/api@0.1.0";
+import {
+  Order,
+  OrderResult
+} from "your-asterai-username:burger-shop/plugin@0.1.0";
 
-export function orderBurger(order: Order): OrderResult {
-  Log.info("a burger is being ordered!");
-  // TODO: make http call to burger API.
-  return new OrderResult(`burger delivered to ${order.address}`);
-}
+export const orderBurger = (order: Order): OrderResult => {
+  // TODO: call order API.
+  console.log(`burger order for address: ${order.address}`);
+  // Tell agent about the outcome.
+  asterai.sendResponseToAgent(`burger was delivered to "${order.address}"`);
+  return {
+    error: undefined
+  } satisfies OrderResult;
+};
 ```
 
-Notice how the function receives structured data and outputs structured data,
-as defined by the types in the plugin manifest.
-This allows for seamless interoperability between reliable code and LLMs.
+For more information about how to build and deploy plugins,
+look at [this guide][hello-world-guide].
 
-[asc]: https://www.assemblyscript.org
-[protobuf]: https://protobuf.dev/overview/
+[wit]: https://component-model.bytecodealliance.org/design/wit.html
+[hello-world-guide]: https://docs.asterai.io/hello_world.html
