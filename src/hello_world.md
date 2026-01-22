@@ -1,83 +1,134 @@
-# Hello World
-This step-by-step guide shows how to create a custom plugin using TypeScript.
+This guide walks you through creating your first asterai component and running it in an environment.
 
-This plugin will expose a function that returns a hardcoded string
-("hello, world!").
-This function can be called by your agent.
+## Prerequisites
 
-To create and deploy the plugin, follow these steps:
+- Node.js 18+
+- An [asterai account](https://asterai.io)
 
-1. Sign in to [asterai][dashboard]
-2. Create a new agent. You can call it hello-world-agent.
-3. Install the asterai CLI. Example using `npm`:
+## Overview
+
+You'll create a simple component that returns a greeting, then run it locally in an environment.
+
+## Steps
+
+### 1. Install the CLI
+
 ```bash
-npm install -g @asterai/cli 
+npm install -g @asterai/cli
 ```
-4. Generate a new API key in [your asterai dashboard][api-key],
-and use it to authenticate your CLI:
+
+### 2. Authenticate
+
+Generate an API key from [your dashboard](https://asterai.io/dashboard/account):
+
 ```bash
-asterai auth <your_api_key> 
+asterai auth login <your_api_key>
 ```
-5. Initialise a new plugin project called `hello-world-plugin`.
-This will create a new directory with a template plugin project.
+
+Verify you're logged in:
+
 ```bash
-asterai init hello-world-plugin
+asterai auth status
 ```
-6. Install dependencies on the new project:
+
+### 3. Create a new component
+
 ```bash
-cd hello-world-plugin
-npm i
+asterai component init hello-world typescript
+cd hello-world
+npm install
 ```
-7. Inspect the contents of `plugin.wit`, the plugin interface file.
-8. Inspect the contents of `plugin.ts`, the plugin implementation.
-9. Modify the contents of `plugin.wit`, removing the example `mul` function
-and adding a new function for getting a secret phrase.
-Also rename the plugin name to `hello-world-plugin` and ensure to
-replace `your-username` in `plugin.wit` with your asterai
-username, as otherwise you will not be able to deploy the plugin.
+
+### 4. Define the interface
+
+Edit `plugin.wit` to define your component's interface. Replace `your-username` with your asterai username:
+
 ```wit
-package your-username:hello-world-plugin@0.1.0;
+package your-username:hello-world@0.1.0;
 
-world plugin {
-  import asterai:host/api@0.1.0;
+interface greeting {
+  get-greeting: func(name: string) -> string;
+}
 
-  export get-secret-phrase: func() -> string;
+world component {
+  export greeting;
 }
 ```
-10. Run `npm run build`. This will generate the utility types,
-but building will fail -- this is expected.
-11. Update `plugin.ts` to implement the `get-secret-phrase` function.
-It needs to return a string.
-The function will also send a message to the agent with that same string,
-by calling `asterai.sendResponseToAgent("string-here")`.
-Your `plugin.ts` will look like this:
-```ts
-import * as asterai from "asterai:host/api@0.1.0";
 
-export const getSecretPhrase = (): string => {
-  const phrase = "hello, world!";
-  // Send the secret phrase to the agent.
-  asterai.sendResponseToAgent(phrase);
-  return phrase;
+This declares a component that exports one function: `get-greeting`, which takes a name and returns a greeting string.
+
+### 5. Implement the component
+
+Edit `src/index.ts`:
+
+```ts
+import { Greeting } from "./bindings/interfaces/your-username-hello-world-greeting";
+
+export const greeting: typeof Greeting = {
+  getGreeting(name: string): string {
+    return `Hello, ${name}!`;
+  },
 };
 ```
-12. Build the plugin with `npm run build` to check that everything is correct.
-13. Get your agent ID from the [cloud console][dashboard].
-14. Deploy the plugin:
+
+### 6. Build
+
 ```bash
-asterai deploy --agent <your_agent_id>
+npm run build
 ```
-15. Refresh the page in the cloud console.
-You should see the new plugin that was just deployed.
-16. In the playground section, ask "what is the phrase?".
-The agent should reply mentioning "hello, world!".
-17. You can query the agent programmatically with a [library or HTTP REST API][query].
 
-Hopefully this hello world example illustrates how asterai can be used to
-connect AI to applications.
-Within plugins, it is possible to access LLMs, Vector DBs, make HTTP calls
-and even use WebSockets.
+### 7. Push the component
 
-[query]: https://docs.asterai.io/querying_an_app.html
-[dashboard]: https://asterai.io/dashboard
-[api-key]: https://asterai.io/dashboard/account
+Push your component to the registry:
+
+```bash
+asterai component push
+```
+
+### 8. Create an environment
+
+Create a new environment and add your component to it:
+
+```bash
+asterai env init my-env
+asterai env add my-env --component your-username:hello-world@0.1.0
+```
+
+### 9. Run locally
+
+Run the environment locally:
+
+```bash
+asterai env run my-env
+```
+
+### 10. Call your function
+
+In another terminal, call your component's function:
+
+```bash
+asterai env call my-env your-username:hello-world greeting.get-greeting '"World"'
+```
+
+You should see: `Hello, World!`
+
+### 11. Push to the cloud (optional)
+
+To run your environment in the cloud, push it to the registry:
+
+```bash
+asterai env push my-env
+```
+
+Your environment is now available to run on asterai's cloud infrastructure.
+
+## What's Next?
+
+You've created a component and run it in an environment. From here you can:
+
+- Add more functions to your component
+- Import other components from the registry
+- Add configuration (environment variables, secrets) to your environment
+- Compose multiple components in a single environment
+
+See the [Components](/src/components) page for more on building components, or [Registry](/src/registry) for publishing and discovering components.

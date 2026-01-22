@@ -23,11 +23,11 @@
               {
                 "group": "Overview",
                 "pages": [
-                  "src/overview",
-                  "src/querying_an_app",
+                  "src/introduction",
+                  "src/components",
+                  "src/registry",
                   "src/console_and_cli",
-                  "src/plugins",
-                  "src/marketplace"
+                  "src/webassembly"
                 ]
               },
               {
@@ -43,6 +43,6 @@
     ]
   },
   "footerSocials": {
-    "github": "https://github.com/asterai"
+    "github": "https://github.com/asterai-io"
   }
 }
