@@ -25,6 +25,7 @@
                 "pages": [
                   "src/introduction",
                   "src/components",
+                  "src/environments",
                   "src/registry",
                   "src/console_and_cli",
                   "src/webassembly"

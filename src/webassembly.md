@@ -1,3 +1,7 @@
+---
+title: WebAssembly
+---
+
 **You don't need to know WebAssembly to use asterai.** Write components in TypeScript, Python, Rust, Go, or any supported language. The asterai CLI handles compilation automatically.
 
 This page is for those curious about the underlying technology.
