@@ -2,11 +2,16 @@
 title: 🧩 Components
 ---
 
-Components are the building blocks of asterai. A component is a portable, sandboxed program that can be published to the registry and run anywhere.
+Components are the building blocks of asterai.
+A component is a portable, sandboxed program that can be published to
+the registry and run anywhere.
 
 ## What is a Component?
 
-A component is compiled code with a typed interface. You write it in a supported language (TypeScript, Python, Rust, Go, etc.), define its interface, and asterai compiles it to a portable format that runs in any asterai environment.
+A component is compiled code with a typed interface.
+You write it in a supported language (TypeScript, Python, Rust, Go,
+etc.), define its interface, and asterai compiles it to a portable
+format that runs in any asterai environment.
 
 Components can:
 - 📤 Export functions for other components or AI agents to call
@@ -15,7 +20,10 @@ Components can:
 
 ## Component Interface
 
-Every component has an interface defined in [WIT (WebAssembly Interface Types)](https://component-model.bytecodealliance.org/design/wit.html). This defines what functions your component exports and what types it uses.
+Every component has an interface defined in
+[WIT (WebAssembly Interface Types)](https://component-model.bytecodealliance.org/design/wit.html).
+This defines what functions your component exports and what types it
+uses.
 
 Example interface for a burger ordering tool:
 
@@ -39,15 +47,20 @@ world component {
 
 The interface declares:
 - **Package**: Your namespace, component name, and version
-- **Imports**: Capabilities your component needs (here, the asterai host API)
+- **Imports**: Capabilities your component needs
+  (here, the asterai host API)
 - **Exports**: Functions your component provides
 - **Types**: Data structures used by your functions
 
 ### 🔗 Composability: Interfaces vs World Exports
 
-If you want other components to be able to call your component's functions, you **must** put those functions inside a named interface. Functions exported directly at the world level (bare exports) can only be called by the host runtime, not by other components.
+If you want other components to be able to call your component's
+functions, you **must** put those functions inside a named interface.
+Functions exported directly at the world level (bare exports) can only
+be called by the host runtime, not by other components.
 
-What this means is that these functions can only be called externally, e.g. from other environments via the asterai API.
+What this means is that these functions can only be called externally,
+e.g. from other environments via the asterai API.
 
 ❌ **Not composable** — only the host can call `order-burger`:
 
@@ -69,7 +82,8 @@ world component {
 }
 ```
 
-✅ **Composable** — other components can import and call `your-username:burger-shop/api`:
+✅ **Composable** — other components can import and call
+`your-username:burger-shop/api`:
 
 ```wit
 package your-username:burger-shop@0.1.0;
@@ -99,11 +113,14 @@ With the second form, another component can import your interface:
 import your-username:burger-shop/api@0.1.0;
 ```
 
-See the [Component Model composition docs](https://component-model.bytecodealliance.org/composing-and-distributing/composing.html#what-is-composition) for more details.
+See the
+[Component Model composition docs](https://component-model.bytecodealliance.org/composing-and-distributing/composing.html#what-is-composition)
+for more details.
 
 ## Component Implementation
 
-The implementation is your actual code. Here's the TypeScript implementation for the interface above:
+The implementation is your actual code.
+Here's the TypeScript implementation for the interface above:
 
 ```ts
 import * as asterai from "asterai:host/api@0.1.0";
@@ -140,10 +157,16 @@ pub fn order_burger(order: Order) -> OrderResult {
 
 ## 🏷️ Versioning
 
-Components use semantic versioning. Each published version is immutable—you can't overwrite an existing version. This ensures reproducible builds and reliable dependencies.
+Components use semantic versioning.
+Each published version is immutable—you can't overwrite an existing
+version.
+This ensures reproducible builds and reliable dependencies.
 
 ## 👉 Next Steps
 
-- [Hello World guide](/hello_world): Create and deploy your first component
-- [CLI reference](/console_and_cli): Learn the asterai CLI commands
-- [Registry](/registry): Publish and discover components
+- [Hello World guide](/hello_world):
+  Create and deploy your first component
+- [CLI reference](/console_and_cli):
+  Learn the asterai CLI commands
+- [Registry](/registry):
+  Publish and discover components

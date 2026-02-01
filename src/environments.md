@@ -2,7 +2,9 @@
 title: 📦 Environments
 ---
 
-Environments are deployable bundles that combine components with configuration. They are the unit of deployment in asterai.
+Environments are deployable bundles that combine components with
+configuration.
+They are the unit of deployment in asterai.
 
 ## What is an Environment?
 
@@ -12,7 +14,8 @@ An environment is a runtime context that:
 - ☁️ Can run locally or in the cloud
 - 🔒 Provides isolation between deployments
 
-Think of components as reusable building blocks, and environments as the assembled application that runs them.
+Think of components as reusable building blocks, and environments as
+the assembled application that runs them.
 
 ## 🛠️ Creating an Environment
 
@@ -52,7 +55,9 @@ const apiKey = asterai.getEnv("API_KEY");
 
 ### Secrets
 
-For sensitive values like API keys, use the cloud console to set secrets. Secrets are encrypted at rest and only decrypted at runtime.
+For sensitive values like API keys, use the cloud console to set
+secrets.
+Secrets are encrypted at rest and only decrypted at runtime.
 
 ## ▶️ Running Environments
 
@@ -64,7 +69,9 @@ Run an environment on your machine for development and testing:
 asterai env run my-env
 ```
 
-This starts a local runtime that loads your components and configuration. You can then call functions:
+This starts a local runtime that loads your components and
+configuration.
+You can then call functions:
 
 ```bash
 asterai env call my-env your-username:hello-world greeting.get-greeting '"World"'
@@ -78,13 +85,17 @@ Push your environment to run it on asterai's infrastructure:
 asterai env push my-env
 ```
 
-Once pushed, your environment is available via the asterai API. No infrastructure management required.
+Once pushed, your environment is available via the asterai API.
+No infrastructure management required.
 
 ## 🔗 Composing Components
 
-Environments can contain multiple components that work together. Each component can import and call functions from other components in the same environment.
+Environments can contain multiple components that work together.
+Each component can import and call functions from other components in
+the same environment.
 
-Example: An environment with a web scraper component and a data processing component:
+Example: An environment with a web scraper component and a data
+processing component:
 
 ```bash
 asterai env init data-pipeline
@@ -92,7 +103,8 @@ asterai env add data-pipeline --component your-username:web-scraper@1.0.0
 asterai env add data-pipeline --component your-username:data-processor@1.0.0
 ```
 
-The data processor can import and call functions from the web scraper, creating a pipeline.
+The data processor can import and call functions from the web scraper,
+creating a pipeline.
 
 ## Inspecting Environments
 
@@ -117,6 +129,9 @@ asterai env remove my-env --component your-username:hello-world@0.1.0  # Remove 
 
 ## 👉 Next Steps
 
-- [Hello World guide](/hello_world): Create your first component and environment
-- [Components](/components): Learn how to build components
-- [CLI reference](/console_and_cli): Full CLI command reference
+- [Hello World guide](/hello_world):
+  Create your first component and environment
+- [Components](/components):
+  Learn how to build components
+- [CLI reference](/console_and_cli):
+  Full CLI command reference

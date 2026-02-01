@@ -4,7 +4,8 @@ title: ⌨️ CLI & Console
 
 ## CLI
 
-The asterai CLI is the primary tool for building, publishing, and running components and environments.
+The asterai CLI is the primary tool for building, publishing, and
+running components and environments.
 
 ### Installation
 
@@ -47,7 +48,8 @@ asterai env set-var <name> --var NAME=VALUE       # Set environment variable
 
 ## ☁️ Cloud Console
 
-The [cloud console](https://asterai.io/dashboard) provides a web interface for managing your asterai resources:
+The [cloud console](https://asterai.io/dashboard) provides a web
+interface for managing your asterai resources:
 
 - 📦 **Environments**: Create, configure, and monitor environments
 - 🧩 **Components**: View your published components and their versions
@@ -56,5 +58,7 @@ The [cloud console](https://asterai.io/dashboard) provides a web interface for m
 
 ## 👉 Next Steps
 
-- [Hello World guide](/hello_world): Build and run your first component
-- [Components](/components): Learn how components work
+- [Hello World guide](/hello_world):
+  Build and run your first component
+- [Components](/components):
+  Learn how components work

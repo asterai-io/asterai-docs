@@ -2,7 +2,8 @@
 title: 🚀 Hello World
 ---
 
-This guide walks you through creating your first asterai component and running it in an environment.
+This guide walks you through creating your first asterai component and
+running it in an environment.
 
 ## 📋 Prerequisites
 
@@ -11,7 +12,8 @@ This guide walks you through creating your first asterai component and running i
 
 ## Overview
 
-You'll create a simple component that returns a greeting, then run it locally in an environment.
+You'll create a simple component that returns a greeting, then run it
+locally in an environment.
 
 ## Steps
 
@@ -23,7 +25,8 @@ npm install -g @asterai/cli
 
 ### 2. Authenticate
 
-Generate an API key from [your dashboard](https://asterai.io/dashboard/account):
+Generate an API key from
+[your dashboard](https://asterai.io/dashboard/account):
 
 ```bash
 asterai auth login <your_api_key>
@@ -45,7 +48,8 @@ npm install
 
 ### 4. Define the interface
 
-Edit `plugin.wit` to define your component's interface. Replace `your-username` with your asterai username:
+Edit `plugin.wit` to define your component's interface.
+Replace `your-username` with your asterai username:
 
 ```wit
 package your-username:hello-world@0.1.0;
@@ -59,7 +63,8 @@ world component {
 }
 ```
 
-This declares a component that exports one function: `get-greeting`, which takes a name and returns a greeting string.
+This declares a component that exports one function: `get-greeting`,
+which takes a name and returns a greeting string.
 
 ### 5. Implement the component
 
@@ -124,15 +129,20 @@ To run your environment in the cloud, push it to the registry:
 asterai env push my-env
 ```
 
-Your environment is now available to run on asterai's cloud infrastructure.
+Your environment is now available to run on asterai's cloud
+infrastructure.
 
 ## 🎯 What's Next?
 
-You've created a component and run it in an environment. From here you can:
+You've created a component and run it in an environment.
+From here you can:
 
 - ➕ Add more functions to your component
 - 📥 Import other components from the registry
-- 🔧 Add configuration (environment variables, secrets) to your environment
+- 🔧 Add configuration (environment variables, secrets) to your
+  environment
 - 🔗 Compose multiple components in a single environment
 
-See the [Components](/components) page for more on building components, or [Registry](/registry) for publishing and discovering components.
+See the [Components](/components) page for more on building
+components, or [Registry](/registry) for publishing and discovering
+components.
