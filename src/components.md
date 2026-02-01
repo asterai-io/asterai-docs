@@ -46,6 +46,7 @@ The interface declares:
 ### 🔗 Composability: Interfaces vs World Exports
 
 If you want other components to be able to call your component's functions, you **must** put those functions inside a named interface. Functions exported directly at the world level (bare exports) can only be called by the host runtime, not by other components.
+
 What this means is that these functions can only be called externally, e.g. from other environments via the asterai API.
 
 ❌ **Not composable** — only the host can call `order-burger`:
