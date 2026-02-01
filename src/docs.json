@@ -7,10 +7,14 @@
     "light": "/logo/light.svg"
   },
   "favicon": "/favicon.svg",
+  "appearance": {
+    "default": "light",
+    "isHidden": false
+  },
   "colors": {
-    "primary": "#A1A1A1",
+    "primary": "#131313",
     "light": "#A1A1A1",
-    "dark": "#A1A1A1"
+    "dark": "#FFFFFF"
   },
   "navigation": {
     "languages": [
