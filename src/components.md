@@ -1,3 +1,7 @@
+---
+title: 🧩 Components
+---
+
 Components are the building blocks of asterai. A component is a portable, sandboxed program that can be published to the registry and run anywhere.
 
 ## What is a Component?
@@ -5,9 +9,9 @@ Components are the building blocks of asterai. A component is a portable, sandbo
 A component is compiled code with a typed interface. You write it in a supported language (TypeScript, Python, Rust, Go, etc.), define its interface, and asterai compiles it to a portable format that runs in any asterai environment.
 
 Components can:
-- Export functions for other components or AI agents to call
-- Import and use other components
-- Access asterai's built-in capabilities (HTTP, storage, LLM calls)
+- 📤 Export functions for other components or AI agents to call
+- 📥 Import and use other components
+- 🔌 Access asterai's built-in capabilities (HTTP, storage, LLM calls)
 
 ## Component Interface
 
@@ -39,12 +43,12 @@ The interface declares:
 - **Exports**: Functions your component provides
 - **Types**: Data structures used by your functions
 
-### Composability: Interfaces vs World Exports
+### 🔗 Composability: Interfaces vs World Exports
 
 If you want other components to be able to call your component's functions, you **must** put those functions inside a named interface. Functions exported directly at the world level (bare exports) can only be called by the host runtime, not by other components.
 What this means is that these functions can only be called externally, e.g. from other environments via the asterai API.
 
-**Not composable** — only the host can call `order-burger`:
+❌ **Not composable** — only the host can call `order-burger`:
 
 ```wit
 package your-username:burger-shop@0.1.0;
@@ -64,7 +68,7 @@ world component {
 }
 ```
 
-**Composable** — other components can import and call `your-username:burger-shop/api`:
+✅ **Composable** — other components can import and call `your-username:burger-shop/api`:
 
 ```wit
 package your-username:burger-shop@0.1.0;
@@ -133,11 +137,11 @@ pub fn order_burger(order: Order) -> OrderResult {
 }
 ```
 
-## Versioning
+## 🏷️ Versioning
 
 Components use semantic versioning. Each published version is immutable—you can't overwrite an existing version. This ensures reproducible builds and reliable dependencies.
 
-## Next Steps
+## 👉 Next Steps
 
 - [Hello World guide](/hello_world): Create and deploy your first component
 - [CLI reference](/console_and_cli): Learn the asterai CLI commands

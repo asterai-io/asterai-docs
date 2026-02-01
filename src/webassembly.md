@@ -1,5 +1,5 @@
 ---
-title: WebAssembly
+title: 🔧 WebAssembly
 ---
 
 **You don't need to know WebAssembly to use asterai.** Write components in TypeScript, Python, Rust, Go, or any supported language. The asterai CLI handles compilation automatically.
@@ -10,10 +10,10 @@ This page is for those curious about the underlying technology.
 
 Asterai uses WebAssembly (WASM) as its portable execution format. This gives us:
 
-- **Language independence**: Any language that compiles to WASM works with asterai
-- **Sandboxed execution**: Components run in isolation with explicit permissions
-- **Near-native performance**: WASM executes efficiently on any platform
-- **Portability**: The same compiled component runs locally, in the cloud, or at the edge
+- 🌐 **Language independence**: Any language that compiles to WASM works with asterai
+- 🔒 **Sandboxed execution**: Components run in isolation with explicit permissions
+- ⚡ **Near-native performance**: WASM executes efficiently on any platform
+- 📤 **Portability**: The same compiled component runs locally, in the cloud, or at the edge
 
 ## WASI and the Component Model
 
@@ -27,19 +27,19 @@ Key concepts:
 
 The Component Model solves a fundamental problem: how do you call a function written in Rust from TypeScript, or vice versa? WIT provides a common type system that works across all languages.
 
-## Experimental Technology
+## ⚠️ Experimental Technology
 
 The WebAssembly Component Model is still evolving. Asterai is making a bet on this technology as the future of modular, portable software.
 
 What this means for you:
 
-- **Tooling is improving rapidly**: Expect better error messages and faster compilation over time
-- **Some rough edges**: You may encounter edge cases or limitations
-- **Breaking changes possible**: The underlying standards are stabilizing but not frozen
+- 🔧 **Tooling is improving rapidly**: Expect better error messages and faster compilation over time
+- 🚧 **Some rough edges**: You may encounter edge cases or limitations
+- 🔄 **Breaking changes possible**: The underlying standards are stabilizing but not frozen
 
 We believe the benefits—true language interoperability, sandboxed execution, and universal portability—are worth the early-adopter tradeoffs.
 
-## Learn More
+## 📚 Learn More
 
 For a deep dive into the Component Model and WIT:
 

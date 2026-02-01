@@ -1,6 +1,10 @@
+---
+title: 🔍 Registry
+---
+
 The asterai registry is where components are published and discovered. Think of it as npm for AI agent tools—but language-agnostic.
 
-## Namespaces
+## 👤 Namespaces
 
 Every user has a namespace matching their username. When you publish a component, it's scoped to your namespace:
 
@@ -8,17 +12,17 @@ Every user has a namespace matching their username. When you publish a component
 your-username:component-name@1.0.0
 ```
 
-## Public Components
+## 🌍 Public Components
 
 Public components are free to publish and use. Anyone can discover and import them into their environments.
 
 Browse available components at [asterai.io/registry](https://asterai.io/registry).
 
-## Private Components
+## 🔒 Private Components
 
 Private components are only visible to you and your team. Use them for proprietary tools or internal integrations.
 
-## Publishing
+## 🚀 Publishing
 
 Publish a component with the CLI:
 
@@ -28,7 +32,7 @@ asterai publish
 
 The component version is defined in your `component.wit` file. Each version is immutable—once published, it cannot be modified or overwritten.
 
-## Using Components
+## 📥 Using Components
 
 Add a component to your environment through the console or by importing it in your component's WIT file:
 
@@ -42,7 +46,7 @@ world component {
 }
 ```
 
-## Versioning
+## 🏷️ Versioning
 
 Components follow [semantic versioning](https://semver.org/):
 

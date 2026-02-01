@@ -1,6 +1,10 @@
+---
+title: 🚀 Hello World
+---
+
 This guide walks you through creating your first asterai component and running it in an environment.
 
-## Prerequisites
+## 📋 Prerequisites
 
 - Node.js 18+
 - An [asterai account](https://asterai.io)
@@ -110,7 +114,7 @@ In another terminal, call your component's function:
 asterai env call my-env your-username:hello-world greeting.get-greeting '"World"'
 ```
 
-You should see: `Hello, World!`
+You should see: `Hello, World!` 🎉
 
 ### 11. Push to the cloud (optional)
 
@@ -122,13 +126,13 @@ asterai env push my-env
 
 Your environment is now available to run on asterai's cloud infrastructure.
 
-## What's Next?
+## 🎯 What's Next?
 
 You've created a component and run it in an environment. From here you can:
 
-- Add more functions to your component
-- Import other components from the registry
-- Add configuration (environment variables, secrets) to your environment
-- Compose multiple components in a single environment
+- ➕ Add more functions to your component
+- 📥 Import other components from the registry
+- 🔧 Add configuration (environment variables, secrets) to your environment
+- 🔗 Compose multiple components in a single environment
 
 See the [Components](/components) page for more on building components, or [Registry](/registry) for publishing and discovering components.

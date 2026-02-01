@@ -1,5 +1,5 @@
 ---
-title: Environments
+title: 📦 Environments
 ---
 
 Environments are deployable bundles that combine components with configuration. They are the unit of deployment in asterai.
@@ -7,14 +7,14 @@ Environments are deployable bundles that combine components with configuration. 
 ## What is an Environment?
 
 An environment is a runtime context that:
-- Contains one or more components
-- Holds configuration (environment variables, secrets)
-- Can run locally or in the cloud
-- Provides isolation between deployments
+- 🧩 Contains one or more components
+- 🔧 Holds configuration (environment variables, secrets)
+- ☁️ Can run locally or in the cloud
+- 🔒 Provides isolation between deployments
 
 Think of components as reusable building blocks, and environments as the assembled application that runs them.
 
-## Creating an Environment
+## 🛠️ Creating an Environment
 
 Create a new environment with the CLI:
 
@@ -29,7 +29,7 @@ asterai env add my-env --component your-username:hello-world@0.1.0
 asterai env add my-env --component other-user:useful-tool@1.2.0
 ```
 
-## Configuration
+## ⚙️ Configuration
 
 Environments support configuration through environment variables.
 
@@ -54,9 +54,9 @@ const apiKey = asterai.getEnv("API_KEY");
 
 For sensitive values like API keys, use the cloud console to set secrets. Secrets are encrypted at rest and only decrypted at runtime.
 
-## Running Environments
+## ▶️ Running Environments
 
-### Locally
+### 💻 Locally
 
 Run an environment on your machine for development and testing:
 
@@ -70,7 +70,7 @@ This starts a local runtime that loads your components and configuration. You ca
 asterai env call my-env your-username:hello-world greeting.get-greeting '"World"'
 ```
 
-### In the Cloud
+### ☁️ In the Cloud
 
 Push your environment to run it on asterai's infrastructure:
 
@@ -80,7 +80,7 @@ asterai env push my-env
 
 Once pushed, your environment is available via the asterai API. No infrastructure management required.
 
-## Composing Components
+## 🔗 Composing Components
 
 Environments can contain multiple components that work together. Each component can import and call functions from other components in the same environment.
 
@@ -115,7 +115,7 @@ asterai env pull my-env             # Pull an environment from the registry
 asterai env remove my-env --component your-username:hello-world@0.1.0  # Remove a component
 ```
 
-## Next Steps
+## 👉 Next Steps
 
 - [Hello World guide](/hello_world): Create your first component and environment
 - [Components](/components): Learn how to build components
