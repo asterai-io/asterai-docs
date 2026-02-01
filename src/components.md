@@ -39,6 +39,63 @@ The interface declares:
 - **Exports**: Functions your component provides
 - **Types**: Data structures used by your functions
 
+### Composability: Interfaces vs World Exports
+
+If you want other components to be able to call your component's functions, you **must** put those functions inside a named interface. Functions exported directly at the world level (bare exports) can only be called by the host runtime, not by other components.
+What this means is that these functions can only be called externally, e.g. from other environments via the asterai API.
+
+**Not composable** — only the host can call `order-burger`:
+
+```wit
+package your-username:burger-shop@0.1.0;
+
+world component {
+  import asterai:host/api@0.1.0;
+
+  export order-burger: func(order: order) -> order-result;
+
+  record order {
+    address: string,
+  }
+
+  record order-result {
+    error: option<string>,
+  }
+}
+```
+
+**Composable** — other components can import and call `your-username:burger-shop/api`:
+
+```wit
+package your-username:burger-shop@0.1.0;
+
+interface api {
+  record order {
+    address: string,
+  }
+
+  record order-result {
+    error: option<string>,
+  }
+
+  order-burger: func(order: order) -> order-result;
+}
+
+world component {
+  import asterai:host/api@0.1.0;
+
+  export api;
+}
+```
+
+With the second form, another component can import your interface:
+
+```wit
+import your-username:burger-shop/api@0.1.0;
+```
+
+See the [Component Model composition docs](https://component-model.bytecodealliance.org/composing-and-distributing/composing.html#what-is-composition) for more details.
+
 ## Component Implementation
 
 The implementation is your actual code. Here's the TypeScript implementation for the interface above:
@@ -82,6 +139,6 @@ Components use semantic versioning. Each published version is immutable—you ca
 
 ## Next Steps
 
-- [Hello World guide](/src/hello_world): Create and deploy your first component
-- [CLI reference](/src/console_and_cli): Learn the asterai CLI commands
-- [Registry](/src/registry): Publish and discover components
+- [Hello World guide](/hello_world): Create and deploy your first component
+- [CLI reference](/console_and_cli): Learn the asterai CLI commands
+- [Registry](/registry): Publish and discover components
