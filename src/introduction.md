@@ -4,7 +4,7 @@ Asterai is the tool marketplace for AI agents. Discover, share, and deploy tools
 
 Asterai is a registry and runtime for portable, sandboxed tools. Write a tool once in your preferred language, publish it to the registry, and run it anywhere—locally or in the cloud.
 
-Under the hood, asterai uses [WebAssembly](/src/webassembly) for portability and security. But you don't need to know anything about WebAssembly to use asterai. Just write code in a supported language (TypeScript, Python, Rust, Go, and more), and asterai handles the rest.
+Under the hood, asterai uses [WebAssembly](/webassembly) for portability and security. But you don't need to know anything about WebAssembly to use asterai. Just write code in a supported language (TypeScript, Python, Rust, Go, and more), and asterai handles the rest.
 
 ## Key Concepts
 
@@ -45,4 +45,4 @@ Deploy functions to the cloud without managing infrastructure. Pay only for what
 
 ## Getting Started
 
-The fastest way to get started is the [Hello World guide](/src/hello_world), which walks you through creating and deploying your first component.
+The fastest way to get started is the [Hello World guide](/hello_world), which walks you through creating and deploying your first component.

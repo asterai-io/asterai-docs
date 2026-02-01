@@ -52,5 +52,5 @@ The [cloud console](https://asterai.io/dashboard) provides a web interface for m
 
 ## Next Steps
 
-- [Hello World guide](/src/hello_world): Build and run your first component
-- [Components](/src/components): Learn how components work
+- [Hello World guide](/hello_world): Build and run your first component
+- [Components](/components): Learn how components work

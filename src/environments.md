@@ -117,6 +117,6 @@ asterai env remove my-env --component your-username:hello-world@0.1.0  # Remove 
 
 ## Next Steps
 
-- [Hello World guide](/src/hello_world): Create your first component and environment
-- [Components](/src/components): Learn how to build components
-- [CLI reference](/src/console_and_cli): Full CLI command reference
+- [Hello World guide](/hello_world): Create your first component and environment
+- [Components](/components): Learn how to build components
+- [CLI reference](/console_and_cli): Full CLI command reference

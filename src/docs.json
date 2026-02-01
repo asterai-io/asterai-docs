@@ -23,18 +23,18 @@
               {
                 "group": "Overview",
                 "pages": [
-                  "src/introduction",
-                  "src/components",
-                  "src/environments",
-                  "src/registry",
-                  "src/console_and_cli",
-                  "src/webassembly"
+                  "introduction",
+                  "components",
+                  "environments",
+                  "registry",
+                  "console_and_cli",
+                  "webassembly"
                 ]
               },
               {
                 "group": "Guides",
                 "pages": [
-                  "src/hello_world"
+                  "hello_world"
                 ]
               }
             ]

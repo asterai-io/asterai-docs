@@ -131,4 +131,4 @@ You've created a component and run it in an environment. From here you can:
 - Add configuration (environment variables, secrets) to your environment
 - Compose multiple components in a single environment
 
-See the [Components](/src/components) page for more on building components, or [Registry](/src/registry) for publishing and discovering components.
+See the [Components](/components) page for more on building components, or [Registry](/registry) for publishing and discovering components.
