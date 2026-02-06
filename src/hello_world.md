@@ -156,10 +156,11 @@ infrastructure.
 You've created a component and run it in an environment.
 From here you can:
 
-- Add more functions to your component
-- Import other components from the registry
-- Add configuration (environment variables, secrets) to your environment
-- Compose multiple components in a single environment
+- ➕ Add more functions to your component
+- 📥 Import other components from the registry
+- 🔧 Add configuration (environment variables, secrets) to your
+  environment
+- 🔗 Compose multiple components in a single environment
 
 See the [Components](/components) page for more on building components,
 or [Registry](/registry) for publishing and discovering components.
