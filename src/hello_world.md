@@ -5,7 +5,7 @@ title: 🚀 Hello World
 This guide walks you through creating your first asterai component and
 running it in an environment.
 
-## Prerequisites
+## 📋 Prerequisites
 
 - Node.js 18+
 - An [asterai account](https://asterai.io)
@@ -57,10 +57,10 @@ hello-world/
   .gitignore
 ```
 
-### 4. Define the interface
+### 4. Understanding the interface
 
-The scaffolded `component.wit` already defines a simple interface.
-Replace `your-username` with your asterai username:
+The scaffolded `component.wit` defines a simple interface. If you're
+logged in, the CLI automatically sets your username as the namespace:
 
 ```wit
 package your-username:hello-world@0.1.0;
@@ -79,9 +79,9 @@ world component {
 This declares a component that exports one function: `greet`, which
 takes a name and prints a greeting.
 
-### 5. Implement the component
+### 5. Understanding the implementation
 
-Edit `component.ts`:
+The scaffolded `component.ts` implements the interface:
 
 ```ts
 import * as host from "asterai:host/api@1.0.0";
@@ -138,7 +138,7 @@ In another terminal, call your component's function:
 asterai env call my-env your-username:hello-world hello-world.greet '"World"'
 ```
 
-You should see: `hello World!`
+You should see: `hello World!` 🎉
 
 ### 11. Push to the cloud (optional)
 
@@ -151,7 +151,7 @@ asterai env push my-env
 Your environment is now available to run on asterai's cloud
 infrastructure.
 
-## What's Next?
+## 🎯 What's Next?
 
 You've created a component and run it in an environment.
 From here you can:
