@@ -5,15 +5,15 @@ title: 🚀 Hello World
 This guide walks you through creating your first asterai component and
 running it in an environment.
 
-## 📋 Prerequisites
+## Prerequisites
 
 - Node.js 18+
 - An [asterai account](https://asterai.io)
 
 ## Overview
 
-You'll create a simple component that returns a greeting, then run it
-locally in an environment.
+You'll create a simple component that exports a greeting function, then
+run it locally in an environment.
 
 ## Steps
 
@@ -26,7 +26,7 @@ npm install -g @asterai/cli
 ### 2. Authenticate
 
 Generate an API key from
-[your dashboard](https://asterai.io/dashboard/account):
+[the console](https://asterai.io/login):
 
 ```bash
 asterai auth login <your_api_key>
@@ -43,47 +43,66 @@ asterai auth status
 ```bash
 asterai component init hello-world typescript
 cd hello-world
-npm install
+```
+
+This scaffolds a TypeScript component project with the following
+structure:
+
+```
+hello-world/
+  component.ts       # Component implementation
+  component.wit      # WIT interface definition
+  package.json       # Build scripts and dependencies
+  tsconfig.json
+  .gitignore
 ```
 
 ### 4. Define the interface
 
-Edit `plugin.wit` to define your component's interface.
+The scaffolded `component.wit` already defines a simple interface.
 Replace `your-username` with your asterai username:
 
 ```wit
 package your-username:hello-world@0.1.0;
 
-interface greeting {
-  get-greeting: func(name: string) -> string;
+interface hello-world {
+  greet: func(name: string);
 }
 
 world component {
-  export greeting;
+  import asterai:host/api@1.0.0;
+
+  export hello-world;
 }
 ```
 
-This declares a component that exports one function: `get-greeting`,
-which takes a name and returns a greeting string.
+This declares a component that exports one function: `greet`, which
+takes a name and prints a greeting.
 
 ### 5. Implement the component
 
-Edit `src/index.ts`:
+Edit `component.ts`:
 
 ```ts
-import { Greeting } from "./bindings/interfaces/your-username-hello-world-greeting";
+import * as host from "asterai:host/api@1.0.0";
 
-export const greeting: typeof Greeting = {
-  getGreeting(name: string): string {
-    return `Hello, ${name}!`;
-  },
+const greet = (name: string) => {
+  console.log(`hello ${name}!`);
+};
+
+export const helloWorld = {
+  greet
 };
 ```
 
-### 6. Build
+The exported object name matches the interface name in `component.wit`
+(kebab-case `hello-world` becomes camelCase `helloWorld` in TypeScript).
+
+### 6. Install dependencies and build
 
 ```bash
-npm run build
+npm install
+asterai component build
 ```
 
 ### 7. Push the component
@@ -116,10 +135,10 @@ asterai env run my-env
 In another terminal, call your component's function:
 
 ```bash
-asterai env call my-env your-username:hello-world greeting.get-greeting '"World"'
+asterai env call my-env your-username:hello-world hello-world.greet '"World"'
 ```
 
-You should see: `Hello, World!` 🎉
+You should see: `hello World!`
 
 ### 11. Push to the cloud (optional)
 
@@ -132,17 +151,15 @@ asterai env push my-env
 Your environment is now available to run on asterai's cloud
 infrastructure.
 
-## 🎯 What's Next?
+## What's Next?
 
 You've created a component and run it in an environment.
 From here you can:
 
-- ➕ Add more functions to your component
-- 📥 Import other components from the registry
-- 🔧 Add configuration (environment variables, secrets) to your
-  environment
-- 🔗 Compose multiple components in a single environment
+- Add more functions to your component
+- Import other components from the registry
+- Add configuration (environment variables, secrets) to your environment
+- Compose multiple components in a single environment
 
-See the [Components](/components) page for more on building
-components, or [Registry](/registry) for publishing and discovering
-components.
+See the [Components](/components) page for more on building components,
+or [Registry](/registry) for publishing and discovering components.
