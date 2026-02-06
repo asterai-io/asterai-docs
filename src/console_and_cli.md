@@ -48,7 +48,7 @@ asterai env set-var <name> --var NAME=VALUE       # Set environment variable
 
 ## ☁️ Cloud Console
 
-The [cloud console](https://asterai.io/dashboard) provides a web
+The [cloud console](https://asterai.io/login) provides a web
 interface for managing your asterai resources:
 
 - 📦 **Environments**: Create, configure, and monitor environments
