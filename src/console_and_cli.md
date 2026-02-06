@@ -24,26 +24,29 @@ asterai auth status             # Show current auth status
 ### Component Commands
 
 ```bash
-asterai component init <name>   # Create a new component project
-asterai component push          # Push component to the registry (from project dir)
-asterai component pull <name>   # Pull a component from the registry
-asterai component list          # List your components
-asterai component pkg           # Package the component's WIT into a WASM package
+asterai component init [name] [-l <language>]    # Scaffold a new component project
+asterai component build                          # Build the component (from project dir)
+asterai component pkg                            # Package the component's WIT into a WASM package
+asterai component push                           # Push component to the registry (from project dir)
+asterai component pull <name>                    # Pull a component from the registry
+asterai component list                           # List your components
+asterai component delete <namespace:name>        # Delete a component and all its versions
 ```
 
 ### Environment Commands
 
 ```bash
-asterai env init <name>                           # Create a new environment
-asterai env run <name>                            # Run environment locally
-asterai env call <name> <component> <fn> [args]   # Call a function
-asterai env push <name>                           # Push environment to registry
-asterai env pull <name>                           # Pull environment from registry
-asterai env list                                  # List your environments
-asterai env inspect <name>                        # Show environment details
-asterai env add <name> --component <spec>         # Add a component
-asterai env remove <name> --component <spec>      # Remove a component
+asterai env init <name> [-e]                     # Create a new environment (-e to edit)
+asterai env edit <name>                          # Open environment in editor ($EDITOR or vi)
+asterai env call <name> <component> <fn> [args]  # Call a function
+asterai env push <name>                          # Push environment to registry
+asterai env pull <name>                          # Pull environment from registry
+asterai env list                                 # List your environments
+asterai env inspect <name>                       # Show environment details
+asterai env add-component <env> <component>      # Add a component
+asterai env remove-component <env> <component>   # Remove a component
 asterai env set-var <name> --var NAME=VALUE       # Set environment variable
+asterai env delete <namespace:name>              # Delete an environment (-r for registry)
 ```
 
 ## ☁️ Cloud Console

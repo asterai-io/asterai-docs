@@ -28,8 +28,8 @@ asterai env init my-env
 This creates an empty environment. Add components to it:
 
 ```bash
-asterai env add my-env --component your-username:hello-world@0.1.0
-asterai env add my-env --component other-user:useful-tool@1.2.0
+asterai env add-component my-env your-username:hello-world@0.1.0
+asterai env add-component my-env other-user:useful-tool@1.2.0
 ```
 
 ## ⚙️ Configuration
@@ -99,8 +99,8 @@ processing component:
 
 ```bash
 asterai env init data-pipeline
-asterai env add data-pipeline --component your-username:web-scraper@1.0.0
-asterai env add data-pipeline --component your-username:data-processor@1.0.0
+asterai env add-component data-pipeline your-username:web-scraper@1.0.0
+asterai env add-component data-pipeline your-username:data-processor@1.0.0
 ```
 
 The data processor can import and call functions from the web scraper,
@@ -124,7 +124,7 @@ This shows:
 ```bash
 asterai env list                    # List all your environments
 asterai env pull my-env             # Pull an environment from the registry
-asterai env remove my-env --component your-username:hello-world@0.1.0  # Remove a component
+asterai env remove-component my-env your-username:hello-world@0.1.0  # Remove a component
 ```
 
 ## 👉 Next Steps

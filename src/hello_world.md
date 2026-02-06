@@ -41,7 +41,7 @@ asterai auth status
 ### 3. Create a new component
 
 ```bash
-asterai component init hello-world typescript
+asterai component init hello-world
 cd hello-world
 ```
 
@@ -119,20 +119,12 @@ Create a new environment and add your component to it:
 
 ```bash
 asterai env init my-env
-asterai env add my-env --component your-username:hello-world@0.1.0
+asterai env add-component my-env your-username:hello-world@0.1.0
 ```
 
-### 9. Run locally
+### 9. Call your function
 
-Run the environment locally:
-
-```bash
-asterai env run my-env
-```
-
-### 10. Call your function
-
-In another terminal, call your component's function:
+Call your component's function:
 
 ```bash
 asterai env call my-env your-username:hello-world hello-world.greet '"World"'
@@ -140,7 +132,7 @@ asterai env call my-env your-username:hello-world hello-world.greet '"World"'
 
 You should see: `hello World!` 🎉
 
-### 11. Push to the cloud (optional)
+### 10. Push to the cloud (optional)
 
 To run your environment in the cloud, push it to the registry:
 

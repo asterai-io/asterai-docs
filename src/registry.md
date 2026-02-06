@@ -32,7 +32,7 @@ Use them for proprietary tools or internal integrations.
 Publish a component with the CLI:
 
 ```bash
-asterai publish
+asterai component push
 ```
 
 The component version is defined in your `component.wit` file.
